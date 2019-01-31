@@ -1,0 +1,211 @@
+/* This code is a little more extensive than the html and starts with the media queries for my fonts */
+@font-face {
+    font-family: 'NewRule';
+    src: URL('fonts/NewRules.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Borough';
+    src: url("fonts/BoroughGrotesk-Shaded.otf")format('opentype');
+}
+@font-face {
+    font-family: 'BoxFont';
+    src: url("fonts/ParmaInitialenMK.ttf")format('truetype');
+}
+
+/* Next are simple styles for different properties, such as the title and the buttons. */
+body{
+    margin:0px;
+    padding: 0px;
+}
+#title{
+    font-family: 'Borough';
+    color: red;
+    font-size: 500%;
+    padding: 0px;
+    font-style: italic;
+   border-bottom: thin solid red;
+   text-align:center;
+}
+#midTitle {
+    color: black;
+}
+.menu,.restart{
+    display: block;
+    border: thick solid red;
+    border-radius: .8em;
+    padding: 25px;
+    margin-bottom: 40px;
+    background: rgb(253, 246, 246);
+    color: red;
+    font-size: 35px;
+    font-family: 'NewRule';
+    width: 200px;
+    box-shadow: 0 9px #999;
+}
+.menu:hover{
+    font-size: 40px;
+    width: 220px;
+    background-color: rgb(245, 222, 222);
+    cursor: pointer;
+    margin: 34px;
+}
+.restart{
+    display: inline;
+    padding: 10px;
+    font-size: 20px;
+}
+.restart:hover{
+    cursor: pointer;
+    background-color: rgb(245, 222, 222);
+}
+.menu:active, .restart:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px); /* This gives the buttons an effect as if they were being pressed down */
+}
+
+/* Next is the board which I used a picture of a black square to fill in the white spaces between the squares. */
+.board {
+    display: flex;
+    width: 300px;
+    height: 300px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background: url(pics/square-256.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 50%;
+    font-family: 'NewRule'
+}
+.square {
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    border: 8px solid black;
+    border-radius: .2em;
+    background-color: white;
+    font-size: 88px;
+}
+.square.empty:hover {
+    border: 12px solid rgb(8, 8, 8);
+    cursor: pointer;
+}
+
+/* This is for the popup to announce the winner. First, this class adds style, size, 
+and an animation to make it blink different colors. https://html-online.com/articles/blinking-text-css-animation/  */
+.winner{
+    animation:blinking .9s infinite;
+    font-family: 'NewRule';
+    font-size: 150px;
+    
+    
+}
+@keyframes blinking{
+    0%{    color: blue; }
+    25%{    color:red; }
+    50%{ color: blue;}
+    75%{    color:transparent;  }
+    100%{    color:red;  }
+}
+
+/* This part is just for the styling of the settings and score section. */
+.settings{
+    font-family: 'NewRule';
+    font-size: 50px;
+    color: red;
+    padding: 0px;
+    margin: 45px;
+}
+.settings:hover{
+    cursor: pointer;
+    color: blue;
+}
+form{
+    font-family: 'NewRule';
+    font-size: 25px;
+    text-align: left;
+    padding-left: 46%;
+    padding-bottom: 20px;
+}
+input{
+    cursor: pointer;
+}
+input[type='radio'] + label {
+    color: rgb(204, 197, 197);
+    font-style: italic;
+  } 
+input[type="radio"]:checked + label{
+    color: blue;
+}
+  li{
+      margin: 2% 0 2% 25%;
+      text-align: left;
+  }
+  .score{
+      font-family: 'BoxFont';
+      font-size: 30px;
+      margin-top: 100px;
+      color:red
+  }
+  
+  /* This part is also for the popup and adds a blur to the background as well as transitions the content 
+  from beneath to the top. https://css-tricks.com/receding-background-modal-boxes/  */
+  #modal {
+    position: fixed;
+    top: 100px;
+    width: 100%;
+    text-align: center;
+   
+    transform: scale(.8); 
+    pointer-events: all;
+    opacity: 0;
+    
+  }
+  .dialogIsOpen main {
+
+    -webkit-filter: blur(5px) grayscale(50%);
+      -webkit-transform: scale(0.9);
+    pointer-events: none;
+  
+  }
+  .dialogIsOpen #modal {
+    transform: scale(1); 
+    opacity: 1;
+    margin: 0;
+  }
+  main, #modal {
+  
+    transition: all 0.4s ease; 
+  
+  }
+
+  /* Lastly this is the media queries to resize everything when the screen is smaller than 700px. */
+  @media only screen and (max-width: 700px) {
+    main{
+        padding: 0;
+        margin: 0;
+    }
+    #title{
+        font-size: 200%;
+    }
+    .board{
+        width:270px;
+        height: 270px;
+        background-size: 150px;
+    }
+    .square{
+        width: 90px;
+        height: 90px;
+    }
+    .score{
+        font-size: 20px;
+    }
+    .winner{
+        font-size: 70px;
+    }
+    .restart{
+        padding: 8px;
+        font-size: 15px;
+        width: 100px;
+    }
+  }

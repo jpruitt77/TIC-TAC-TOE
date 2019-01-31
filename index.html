@@ -1,0 +1,38 @@
+<!-- this is the skeleton of the application. I have one CSS style link and three scripts sources. The first two scripts are for the react libraries 
+and the second is my script file which does all the work in this application. There are three div tags, one is for all the game output. The other 
+two are for the popup to announce the winner. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+
+
+    <main>
+        <header>
+            <h1 id="title"><span id='firstTitle'>Tic</span> <span id='midTitle'>Tac</span> <span id='lastTitle'>Toe</span></h1>
+        </header>
+        <center>
+            <div id="game"></div>
+        </center>
+    </main>
+    <div id='modal'><div id='winner'></div></div>
+
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="game.js"></script>
+   
+
+
+
+</body>
+
+</html>
