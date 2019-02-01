@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 var app = express();
 
 
-app.use(express.static(__dirname + '/public/index.html'));
+app.use(express.static(__dirname + '/public/index'));
 
 
 app.listen(port, () => {
