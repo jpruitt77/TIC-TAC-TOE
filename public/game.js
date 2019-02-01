@@ -827,5 +827,5 @@ class Game extends React.Component {
 
 
 // This part chooses where the code will be render within the html document.
-const domContainer = document.querySelector('#game');
+const domContainer = document.getElementById('game');
 ReactDOM.render(e(Game), domContainer);
